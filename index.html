@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Covert - Free Converter</title>
+    <link rel="stylesheet" href="CSS/style.css" />
+    <link rel="icon" href="Images/covertLogo.webp">
+    <script src="JS/dragdrop.js"></script>
+    <script src="JS/converter.js"></script>
+    <script src="JS/Menu.js"></script>
+</head>
+<body>
+    <nav>
+        <img class="Logo" src="Images/covertLogo.webp" alt="Covert Logo"/>
+        <h1>Covert</h1>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li class="dropdown">
+                <button href="about.html">Services &#8744;</button>
+                <ul class="dropdown-content">
+                    <li><a href="/">Image Conversion</a></li>
+                    <li><a href="/Encrypter/">Encrypter</a></li>
+                </ul>
+            </li>
+            <li><a href="">Contact Us</a></li>
+        </ul>
+    </nav>
+    <div class="outer-container">
+        <div class="container">
+            <form id="fileForm">
+                <div class="conversion-area">
+                    <div class="drag-drop-zone" id="dragDropZone">
+                        <img src="Images/CloudUpload.webp" alt="Upload Icon">
+                        <p>Drag and drop files here or click to select</p>
+                    </div>
+                </div>
+                <input type="file" id="hiddenFileInput" style="display:none" />
+                <button class="submit" type="submit">Convert</button>
+                <div id="button">
+
+                </div>
+            </form>
+            <div id="successBox" style="background-color: #d4edda; color: #155724;"></div>
+            <div id="errorBox" style="background-color: #f8d7da; color: #721c24;"></div>
+        </div>
+        <div class="settings-container">
+            <div id="settingsPanel" class="settings-panel">
+                <div class="settings-header">
+                    <img src="Images/gearIcon.webp" alt="Settings" id="settingsIcon" style="margin-bottom: -4px;"><span> Settings</span>
+                </div>
+                <div class="settings-content">
+                    <label for="outputFormat">Output Format:</label>
+                    <select id="outputFormat">
+                        <option value="jpeg">JPEG</option>
+                        <option value="png">PNG</option>
+                        <option value="webp">WebP</option>
+                        <option value="tiff">TIFF</option>
+                        <option value="ico">ico</option>
+                    </select><br><br>
+                    <label for="qualitySlider">Quality: <span id="qualityValue">1.0</span></label>
+                    <input type="range" id="qualitySlider" min="0.1" max="1.0" step="0.1" value="1.0" /><br><br>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
