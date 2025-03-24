@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
       ico: "image/x-icon"
     };
     const mimeType = formatMap[selectedFormat] || "image/jpeg";
-    
+
     const quality = parseFloat(document.getElementById("qualitySlider").value) || 1.0;
     const reader = new FileReader();
     reader.onload = () => {
@@ -50,10 +50,12 @@ document.addEventListener("DOMContentLoaded", () => {
         const link = document.createElement("a");
         link.href = convertedData;
         link.download = fileInput.files[0].name.replace(/\.\w+$/, `.${selectedFormat}`);
-        
+
         errorBox.innerHTML = ''; // Clear error message
         successBox.innerHTML =
           '<img src="Images/CheckMark.webp" alt="Success Icon" style="width:75px;"> Conversion successful!';
+
+        button.innerHTML = ''; // Clear existing buttons
 
         const downloadButton = document.createElement("button");
         downloadButton.textContent = "Download";
@@ -69,6 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
           link.click();
         };
 
+        const dragDropZone = document.getElementById("dragDropZone");
         const convertMoreButton = document.createElement("button");
         convertMoreButton.textContent = "Convert More";
         convertMoreButton.style.backgroundColor = "#808080";
@@ -83,6 +86,16 @@ document.addEventListener("DOMContentLoaded", () => {
         convertMoreButton.onclick = () => {
           button.innerHTML = ''; // Clear buttons
           convertButton.style.display = "block"; // Show convert button
+          fileInput.value = ''; // Reset file input for new upload
+          dragDropZone.style.background = "";
+          dragDropZone.style.cursor = "";
+          dragDropZone.innerHTML = `
+          <img src="Images/CloudUpload.webp" alt="Upload Icon">
+          <p>Drag and drop files here or click to select</p>
+            `;
+          dragDropZone.addEventListener("click", () => {
+            fileInput.click();
+          });
         };
 
         button.appendChild(downloadButton);
