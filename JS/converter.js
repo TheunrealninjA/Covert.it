@@ -8,6 +8,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const convertButton = document.querySelector(".submit");
   if (!fileForm) return;
 
+  const qualitySlider = document.getElementById("qualitySlider");
+  const qualityValue = document.getElementById("qualityValue");
+  qualitySlider.addEventListener("input", () => {
+    qualityValue.textContent = qualitySlider.value;
+  });
+
   fileForm.addEventListener("submit", (event) => {
     event.preventDefault();
     const fileInput = document.getElementById("hiddenFileInput");

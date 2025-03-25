@@ -24,7 +24,6 @@
                     <li><a href="/Encrypter/">Encrypter</a></li>
                 </ul>
             </li>
-            <li><a href="">Contact Us</a></li>
         </ul>
     </nav>
     <div class="outer-container">
@@ -35,7 +34,7 @@
                 </div>
                 <button class="submit" type="button" id="encryptBtn">Encrypt</button>
                 <div class="output" style="padding: 3px 5px; margin-top: 15px;">
-                    <textarea id="textOutput" readonly placeholder="Encrypted output will appear here"></textarea>
+                    <textarea id="textOutput" readonly placeholder="Encrypted output will appear here" style="width: 96%;"></textarea>
                 </div>
             </form>
             <div id="successBox" style="background-color: #d4edda; color: #155724"></div>
@@ -52,7 +51,16 @@
                     <select id="outputFormat">
                         <option value="Base64">Base64</option>
                         <option value="3DES">3DES</option>
+                        <option value="AES">AES</option>
                     </select><br /><br />
+                    <div style="display: none;" id="keySizeDiv">
+                        <label for="keySize">Key Size :</label>
+                        <select id="keySize">
+                            <option value="128">128</option>
+                            <option value="192">192</option>
+                            <option value="256">256</option>
+                        </select><br /><br />
+                    </div>
                     <label for="SeedNum">Secret Key :</label>
                     <input type="input" id="SeedNum" value="0" />
                     <img src="../Images/Info_Icon.webp" alt="info" style="margin-bottom: -4px; cursor: pointer"
