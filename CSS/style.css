@@ -141,7 +141,6 @@ input[type="number"]:focus {
   width: 180px;
   margin-top: 5px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-  margin-left: -120px;
 }
 .dropdown-content.show {
   display: block;
